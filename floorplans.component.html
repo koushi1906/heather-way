@@ -1,0 +1,37 @@
+<!-- <div class="h-screen bg-black">
+    <div class="grid text-white grid-cols-2">
+        <div class="grid grid-cols-1 ml-16 w-40 lg:w-full lg:grid-cols-2 2xl:grid-cols-2 gap-7 2xl:ml-4 2xl:mt-6 min-h-screen">
+            <ng-container *ngFor="let item of image">
+                <div class="flex flex-col">
+                    <img [src]= 'item.src' alt="img" width="100%">
+                <div class="flex flex-col border border-white bg-slate-400 text-black text-center text-sm 2xl:text-lg">
+                    <div>{{item.desc | uppercase}}</div>
+                    <div>{{item.price | currency}}</div>
+                    <div class="text-xs 2xl:text-lg">PER INSTALLMENT/PERSON</div>
+                </div>
+                </div>
+                
+            </ng-container>
+        </div>
+        <div>2</div>
+    </div>
+</div> -->
+
+<div class="min-h-screen bg-black">
+    <div class="grid text-white grid-cols-1 lg:grid-cols-2 2xl:grid-cols-2 gap-4 lg:gap-8 mt-8 pt-20 lg:mt-0 px-6 lg:px-12">
+      <ng-container *ngFor="let item of image">
+        <div class="flex flex-col mb-6 lg:mb-0">
+          <img [src]="item.src" alt="img" class="w-full" />
+          <div class="flex flex-col border border-white bg-slate-400 text-black text-center text-sm lg:text-lg p-2">
+            <div class="font-semibold text-left text-blue-900 text-2xl lg:text-4xl">{{ item.desc | uppercase }}</div>
+            <div class="font-extrabold">{{ item.price | currency }}</div>
+            <div class="text-xs lg:text-sm italic font-medium">PER INSTALLMENT/PERSON</div>
+            <div *ngIf="item.status === 'available'" class="text-green-800 font-bold">&#9989; Available</div>
+            <div *ngIf="item.status === 'waitlist'" class="text-slate-800 font-bold">&#8987; Waitlist</div>
+            <div *ngIf="item.status === 'no'" class="text-red-800 font-bold"> 🚫 Not Available</div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  

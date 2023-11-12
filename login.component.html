@@ -1,0 +1,36 @@
+
+<div class="min-h-screen flex items-center justify-center bg-black">
+    <form class="border border-white m-4 sm:m-auto sm:w-1/2 md:w-1/3 lg:w-1/4 rounded" [formGroup]="loginForm" (ngSubmit)="loginUser()">
+        <h1 class="text-center text-xl text-white font-semibold">Login</h1>
+        
+        <div class="my-5 w-full">
+            <label for="email" class="text-white">Email:</label>
+            <input type="email" id="email" placeholder="Enter email" class="p-2 focus:outline-none rounded w-full" formControlName="email"/>
+        </div>
+        <ng-container *ngIf="email?.invalid && (email?.touched || email?.dirty)">
+            <div *ngIf="email?.hasError('required')" class="text-red-500 font-bold">&#42; Email is required</div>
+            <div *ngIf="email?.hasError('email')" class="text-red-500 font-bold">&#42; Invalid email</div>
+        </ng-container>
+        
+        <div class="my-5 w-full">
+            <label for="pass" class="text-white">Password:</label>
+            <div class="relative">
+                <input type="{{ showPassword ? 'text' : 'password' }}" id="pass" placeholder="Enter password" class="p-2 focus:outline-none rounded w-full" formControlName="password"/>
+                <button type="button" class="absolute top-1/2 right-2 transform -translate-y-1/2 text-gray-900" (click)="togglePasswordVisibility()">
+                    {{ showPassword ? 'Hide' : 'Show' }}
+                </button>
+            </div>
+        </div>
+        <ng-container *ngIf="password?.invalid && (password?.touched || password?.dirty)">
+            <div class="text-red-500 font-bold">&#42; Password is required</div>
+        </ng-container>
+        
+        <div class="my-5 w-full">
+            <button [ngStyle]="{'background-color': loginForm.invalid ? '#CCCCCC' : '#3490dc', 'color': 'white'}" class="p-2 w-full  bg-blue-500 hover:bg-blue-600 hover:font-semibold text-white" type="submit" [disabled]="loginForm.invalid">Sign In</button>
+            <div class="pt-2 text-white"></div>
+            <hr class="bg-white w-full mb-2">
+            <div class="pt-2 mb-2 text-white">Do not have an account?</div>
+            <button class="p-2  w-full bg-green-500 hover:bg-green-600 hover:font-semibold text-white" [routerLink]="['/register']" routerLinkActive="router-link-active">Sign Up</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,68 @@
+<div class="h-screen bg-cover bg-no-repeat bg-center" [style.background-image]="'url('+src+')'">
+    <div class="flex flex-col justify-between h-full">
+        <div class="text-center text-black text-xl p-4 font-serif mt-16">
+            {{title}}
+        </div>
+        <div class=" mb-40 ml-4 mr-4 lg:mb-80 lg:ml-28 lg:mb-80 text-white text-3xl sm:text-4xl lg:text-5xl">
+            {{desc}}
+        </div>
+    </div>
+</div>
+
+<div class="h-screen bg-black flex flex-col justify-between">
+    <div class="text-white text-left lg:text-center text-xl p-4 font-serif">
+        {{cont}}
+        <hr class="h-px mx-0 lg:mx-32 mt-4 bg-gray-200 border-0 dark:bg-gray-700">
+    </div>
+
+    
+    <div class="w-full flex font-serif">
+        <div class="flex flex-col lg:ml-36 text-white ml-0">
+            
+            <div class="mb-4">
+                <div class="mb-4"> Better yet, see us in person!</div>
+                <div class="text-gray-400">We love our customers, so feel free to visit during normal business hours.</div>
+            </div>
+
+            <div class="mb-4">
+                <div>{{title | titlecase}}</div>
+                <div class="mt-4 mb-4 text-gray-400">
+                    <div class="mb-0.5">1020 W Abram St.</div>
+                    <div>Arlington, TX 76013</div>
+                </div>
+                <div>
+                    <div class="text-gray-400 mb-0.5 lg:flex">Office Phone Number: <div class=""><a class="hover:text-orange-300 text-white" href="#">(817)-265-6050</a></div></div>
+                    <div class="text-gray-400 mb-0.5 lg:flex">Emergency Phone Number: <div></div><a class="hover:text-orange-300 text-white " href="#">(817)-589-5642</a></div>
+                    <div class="text-gray-400 lg:flex">Email: <div><a class="hover:text-orange-300 text-white" href="#">{{email}}</a></div></div>
+                </div>
+            </div>
+
+            <div>
+                <div>Hours</div>
+            </div>
+            <ng-container *ngIf="!isClicked">
+                <div class="mb-4 mt-4 flex text-gray-400">
+                    Open Today <div class="ml-2 text-orange-400">{{time}}</div><button (click)="expand()" class="hover:text-orange-300 ml-2 text-white">&#8744;</button>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="isClicked">
+                <div class="mt-4 mb-4 text-gray-400">
+                   <div class="flex mb-0.5">Mon <div class="ml-2 text-orange-400">{{time}}</div><button class="ml-2 hover:text-orange-300 text-white" (click)="reset()">&#8743;</button></div>
+                   <div class="flex mb-0.5">Tue <div class="ml-3.5 text-orange-400">{{time}}</div></div>
+                   <div class="flex mb-0.5">Wed <div class="ml-2 text-orange-400">{{time}}</div></div>
+                   <div class="flex mb-0.5">Thu <div class="ml-3 text-orange-400">{{time}}</div></div>
+                   <div class="flex mb-0.5">Fri <div class="ml-5 text-orange-400">{{time}}</div></div>
+                   <div class="flex mb-0.5">Sat <div class="ml-4 text-red-400">Closed</div></div>
+                   <div class="flex">Sun <div class="ml-3 text-red-400">Closed</div></div>
+                </div>
+            </ng-container>
+
+            <div class="mt-4"><button class="border p-5 text-black bg-yellow-600 hover:bg-black hover:text-yellow-600 hover:transition-all delay-100 " routerLink="/about">Learn More</button></div>
+            
+        </div>
+        <div class="lg:w-1/3 mr-4 w-1/2 lg:ml-64 text-white">
+            <img [src]="src2" width="100%" alt="">
+        </div>
+    </div>
+    <div class="text-white text-center md:pb-32 lg:pb-32 pb-0 mt-4">Copyright © 2021 Heatherway Apartments - All Rights Reserved.</div>
+</div>

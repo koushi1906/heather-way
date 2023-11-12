@@ -1,0 +1,53 @@
+<div class="bg-black pt-16 min-h-screen">
+    <div class="flex items-center justify-between md:h-1/2 lg:h-1/2">
+      <div class="w-0 sm:w-1/2 lg:w-1/2">
+        <img src="https://lighthouse.app/cdn/1080/photos/72192/backup/7_13B561206EDC4CE291541E7EE98FB7CD.JPG" alt="">
+      </div>
+      <div class="lg:w-1/2 md:w-1/2 sm:w-full">
+        <div class="border p-6 border-black bg-orange-200 mt-2 mr-2">
+          <div class="mb-2 text-left text-lg">FEEL AT HOME</div>
+          <div class="mb-2 font-bold text-gray-800 text-lg">WHAT YOU'VE BEEN SEARCHING FOR</div>
+          <div class="font-light text-lg font-serif">{{about}}</div>
+          <div>
+            <button (click)="view()" class="border rounded border-black p-2 bg-gray-500 text-white font-bold hover:bg-white hover:text-black text-lg mt-2 delay-150">
+              View Gallery
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-2 flex">
+      <div class="p-4 bg-gray-300 border border-black lg:ml-3 w-full lg:w-1/2">
+        <div class="mb-5 text-center text-lg font-bold">Community Amenities</div>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 text-sm">
+          <ng-container *ngFor="let item of list">
+            <li class="font-semibold text-fuchsia-900 lg:text-lg font-serif text-center">{{item.amenity | titlecase}}</li>
+          </ng-container>
+        </ul>
+      </div>
+      
+      <div class="p-4 border border-black bg-slate-300 lg:ml-3 w-full lg:w-1/2 lg:mr-2">
+        <div class="mb-5 text-center font-bold text-lg">Floor Plan Details</div>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 text-sm">
+            <ng-container *ngFor="let item of flist">
+              <li class="font-semibold text-lime-800 font-serif text-center lg:text-lg">{{item.amenity | titlecase}}</li>
+            </ng-container>
+          </ul>
+      </div>
+    </div>
+
+    <div class="mt-2">
+        <div class="lg:ml-32">
+            <div class="p-4 pb-4 border border-black bg-green-50 lg:ml-3 w-full lg:w-5/6">
+                <div class="text-center font-bold text-lg mb-5">Highlights</div>
+                <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 text-sm">
+                    <ng-container *ngFor="let item of hlist">
+                      <li class="font-semibold text-violet-800 font-serif text-center lg:text-lg">{{item.amenity | titlecase}}</li>
+                    </ng-container>
+                  </ul>
+            </div>
+        </div>
+    </div>
+   
+  </div>
+  
